@@ -8,6 +8,7 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+const books = require('../models/books')
 
 // define the book model
 let book = require('../models/books');
@@ -68,7 +69,7 @@ router.post('/add', (req, res, next) => {
      book.create(newBook, (err, book) =>{
       if (err) 
       {
-        console.log(err)
+        console.log(err);
         res.end(err);
       }
       else
@@ -91,7 +92,7 @@ router.get('/:id', (req, res, next) => {
       if(err)
       {
         console.log(err);
-        res.end(err)
+        res.end(err);
       }
       else
       {
@@ -107,14 +108,14 @@ router.post('/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     let id = req.params.id
+
     let updatedBook = book ({
       "_id": id,
       "Title": req.body.Title,
-      "Description": req.body.Dscription,
-      "Price": req.bofy.Price,
+      "Description": req.body.Description,
+      "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre
-
     });
 
     book.updateOne({_id: id}, updatedBook, (err)=>{
