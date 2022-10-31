@@ -8,9 +8,9 @@
           <!-- ------------------------ -->
           <!-- FIX THE ADD BUTTON BELOW -->
           <!-- ------------------------ -->
-          <button class="btn btn-primary" type="submit">  
-            <i class="fas fa-edit"></i> Submit</button>
-          <a href="/view/details" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
+          <!-- <button class="btn btn-primary" type="submit">  
+            <i class="fas fa-edit"></i> Submit</button> -->
+          <a href="/books/details" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
            <!-- ------------------------ -->
           <br>
           <div class="table-responsive">
@@ -42,8 +42,8 @@
                     <!-- <button class="btn btn-primary" type="submit">
                       <i class="fas fa-edit"></i> Submit</button>
                    -->
-                      <a href="/books/<%=books[count]._id%>" class="btn btn-warning" > <!--Loop[count]-->
-                          <i class="fas fa-undo"></i>Edit</a>
+                      <a href="/books/<%=books[count]._id%>" class="btn btn-primary" > <!--Loop[count]-->
+                          <i class="fas fa-pencil-alt"></i>Edit</a>
                      <!-- ------------------------ -->
                   </td>
 
@@ -55,8 +55,8 @@
                     <!-- <button class="btn btn-primary" type="submit">
                       <i class="fas fa-edit"></i> Submit</button> -->
                   
-                      <a href="/books/delete/<%=books[count]._id%>" class="btn btn-warning">
-                          <i class="fas fa-undo"></i> Delete</a>
+                      <a href="/books/delete/<%=books[count]._id%>" class="btn btn-danger">
+                          <i class="fas fa-trash-alt"></i> Delete</a>
                     <!-- ------------------------ -->
                   </td>
                 </tr>

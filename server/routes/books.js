@@ -1,3 +1,9 @@
+/*Yuichi Boki
+  301216594
+  COMP 229
+  COMP229-F2020-MIDTERM-301216594*/
+
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -29,16 +35,16 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-     book.find( (err, books) => {
+     book.find((err, bookList) => {
       if (err)
       {
         return console.error(err);
       }
       else 
       {
-        res.render('books/detailes', {
+        res.render('books/details', {
           title: 'Books',
-          books: books
+          books: bookList
         });
       }
     });
@@ -54,16 +60,16 @@ router.post('/add', (req, res, next) => {
      let newBook = book({
       "Title": req.body.Title,
       "Description": req.body.Dscription,
-      "Price": req.bofy.Price,
+      "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre
     });
 
-     book.create( newBook,(err, books) => {
+     book.create(newBook, (err, book) =>{
       if (err) 
       {
         console.log(err)
-        res,end(err);
+        res.end(err);
       }
       else
       {
@@ -72,6 +78,7 @@ router.post('/add', (req, res, next) => {
   });
 
 });
+
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
 
@@ -80,7 +87,7 @@ router.get('/:id', (req, res, next) => {
      *****************/
     let id = req.params.id;
 
-    book.findById(id,(err,bookToEdit)=>{
+    book.findById(id, (err,bookToEdit)=>{
       if(err)
       {
         console.log(err);
@@ -101,6 +108,7 @@ router.post('/:id', (req, res, next) => {
      *****************/
     let id = req.params.id
     let updatedBook = book ({
+      "_id": id,
       "Title": req.body.Title,
       "Description": req.body.Dscription,
       "Price": req.bofy.Price,
@@ -109,7 +117,7 @@ router.post('/:id', (req, res, next) => {
 
     });
 
-    book.updateOne({_id: id}, updatedBook,(err)=>{
+    book.updateOne({_id: id}, updatedBook, (err)=>{
       if (err)
       {
         console.log(err);
@@ -117,7 +125,7 @@ router.post('/:id', (req, res, next) => {
       }
       else
       {
-        res.redirect('/books')
+        res.redirect('/books');
       }
     });
 });
