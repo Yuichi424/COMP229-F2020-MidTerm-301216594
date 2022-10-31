@@ -10,7 +10,7 @@
           <!-- ------------------------ -->
           <button class="btn btn-primary" type="submit">  
             <i class="fas fa-edit"></i> Submit</button>
-          <a href="/details" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
+          <a href="/view/details" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
            <!-- ------------------------ -->
           <br>
           <div class="table-responsive">
@@ -38,11 +38,12 @@
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <button class="btn btn-primary" type="submit">
+
+                    <!-- <button class="btn btn-primary" type="submit">
                       <i class="fas fa-edit"></i> Submit</button>
-                  
-                      <a href="/book-list" class="btn btn-warning">
-                          <i class="fas fa-undo"></i> </a>
+                   -->
+                      <a href="/books/<%=books[count]._id%>" class="btn btn-warning" > <!--Loop[count]-->
+                          <i class="fas fa-undo"></i>Edit</a>
                      <!-- ------------------------ -->
                   </td>
 
@@ -50,11 +51,12 @@
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <button class="btn btn-primary" type="submit">
-                      <i class="fas fa-edit"></i> Submit</button>
+
+                    <!-- <button class="btn btn-primary" type="submit">
+                      <i class="fas fa-edit"></i> Submit</button> -->
                   
-                      <a href="/book-list" class="btn btn-warning">
-                          <i class="fas fa-undo"></i> Cancel</a>
+                      <a href="/books/delete/<%=books[count]._id%>" class="btn btn-warning">
+                          <i class="fas fa-undo"></i> Delete</a>
                     <!-- ------------------------ -->
                   </td>
                 </tr>
