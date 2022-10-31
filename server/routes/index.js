@@ -1,3 +1,8 @@
+/*Yuichi Boki
+  301216594
+  COMP 229
+  COMP229-F2020-MIDTERM-301216594*/
+  
 // modules required for routing
 let express = require('express');
 let router = express.Router();
